@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide
 
 class relativeActivity : AppCompatActivity() {
 
+    //Hola aguero
     private lateinit var monedaTres: ImageView
     private lateinit var reyBastos: ImageView
     private lateinit var caballoEspadas: ImageView
