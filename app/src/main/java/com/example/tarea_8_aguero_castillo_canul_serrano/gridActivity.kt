@@ -19,7 +19,7 @@ class gridActivity : AppCompatActivity() {
         setContentView(R.layout.activity_grid)
 
         recyclerView = findViewById(R.id.my_recycler_view)
-        gridLayoutManager = GridLayoutManager(applicationContext,3,LinearLayoutManager.VERTICAL,false)
+        gridLayoutManager = GridLayoutManager(applicationContext,3,GridLayoutManager.VERTICAL,false)
         recyclerView?.layoutManager = gridLayoutManager
         recyclerView?.setHasFixedSize(true)
         arrayList = ArrayList()
@@ -31,8 +31,13 @@ class gridActivity : AppCompatActivity() {
     private fun setDataInList():ArrayList<AlphaChar>{
         var items:ArrayList<AlphaChar> = ArrayList()
 
-        items.add(AlphaChar(R.drawable.trompeta,"Char Trompeta"))
         items.add(AlphaChar(R.drawable.violin,"Char Violin"))
+        items.add(AlphaChar(R.drawable.violin,"Char Violin"))
+        items.add(AlphaChar(R.drawable.violin,"Char Violin"))
+        items.add(AlphaChar(R.drawable.violin,"Char Violin"))
+        items.add(AlphaChar(R.drawable.violin,"Char Violin"))
+        items.add(AlphaChar(R.drawable.violin,"Char Violin"))
+
 
         return items
     }
