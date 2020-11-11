@@ -22,7 +22,6 @@ class MainActivity : AppCompatActivity() {
             val intent:Intent = Intent(this, relativeActivity::class.java)
             startActivity(intent)
         }
-
         gridButton.setOnClickListener{view: View ->
             val intent:Intent = Intent(this, gridActivity::class.java)
             startActivity(intent)
