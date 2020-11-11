@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Tarea_8-Aguero_Castillo_Canul_Serrano</string>
-    <string name="relative">Relative Layout</string>
+    <string name="relative">Terminaste con el mazo</string>
     <string name="grid">Grid Layout</string>
 </resources>
