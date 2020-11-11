@@ -1,5 +1,6 @@
 package com.example.tarea_8_aguero_castillo_canul_serrano
 
+import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
@@ -18,8 +19,12 @@ class gridActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_grid)
 
+        var numberOfColumns = 2
+        if (this.resources.configuration.orientation ===
+            Configuration.ORIENTATION_LANDSCAPE) numberOfColumns = 3
+
         recyclerView = findViewById(R.id.my_recycler_view)
-        gridLayoutManager = GridLayoutManager(applicationContext,3,GridLayoutManager.VERTICAL,false)
+        gridLayoutManager = GridLayoutManager(applicationContext,numberOfColumns,GridLayoutManager.VERTICAL,false)
         recyclerView?.layoutManager = gridLayoutManager
         recyclerView?.setHasFixedSize(true)
         arrayList = ArrayList()
