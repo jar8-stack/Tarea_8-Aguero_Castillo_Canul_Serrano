@@ -1,33 +1,47 @@
 package com.example.tarea_8_aguero_castillo_canul_serrano.adapters
 
-import android.content.ClipData
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.basic.programming.mygridlayoutapp.model.CharItem
 import com.example.tarea_8_aguero_castillo_canul_serrano.R
-import com.example.tarea_8_aguero_castillo_canul_serrano.model.AlphaChar
 
-class AlphaAdapters (var context: Context,var arrayList: ArrayList<AlphaChar>): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+class AlphaAdapters(var context: Context, var arrayList: ArrayList<CharItem>) :
+    RecyclerView.Adapter<AlphaAdapters.ItemHolder>() {
 
-        val itemHolder = LayoutInflater.from(parent.context).inflate(R.layout.grid_layout_list_item,parent,false)
-        return ItemHolder(itemHolder)
-    }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        var alphaChar:AlphaChar = arrayList.get(position)
-
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemHolder {
+        val viewHolder = LayoutInflater.from(parent.context)
+            .inflate(R.layout.grid_view_layout_items, parent, false)
+        return ItemHolder(viewHolder)
     }
 
     override fun getItemCount(): Int {
         return arrayList.size
     }
-    class ItemHolder(itemView:View):RecyclerView.ViewHolder(itemView){
-        var icons = itemView.findViewById<ImageView>(R.id.icons_image)
-        var alphas = itemView.findViewById<TextView>(R.id.alpha_text_view)
+
+    override fun onBindViewHolder(holder: ItemHolder, position: Int) {
+
+        val charItem: CharItem = arrayList.get(position)
+
+        holder.icons.setImageResource(charItem.icons!!)
+        holder.titles.text = charItem.alpha
+
+        holder.titles.setOnClickListener {
+            Toast.makeText(context, charItem.alpha, Toast.LENGTH_LONG).show()
+        }
+
+    }
+
+    class ItemHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
+        var icons = itemView.findViewById<ImageView>(R.id.icon_image_view)
+        var titles = itemView.findViewById<TextView>(R.id.title_text_view)
+
     }
 }

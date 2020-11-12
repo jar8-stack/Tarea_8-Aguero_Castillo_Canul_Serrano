@@ -7,43 +7,62 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tarea_8_aguero_castillo_canul_serrano.adapters.AlphaAdapters
-import com.example.tarea_8_aguero_castillo_canul_serrano.model.AlphaChar
+import com.basic.programming.mygridlayoutapp.model.CharItem
 
 class gridActivity : AppCompatActivity() {
-    private var recyclerView:RecyclerView ?=null
-    private var gridLayoutManager:GridLayoutManager ?=null
-    private var arrayList:ArrayList<AlphaChar> ?= null
-    private var alphaAdapters:AlphaAdapters ?= null
+    private var recyclerView: RecyclerView? = null
+    private var charItem: ArrayList<CharItem>? = null
+    private var gridLayoutManager: GridLayoutManager? = null
+    private var alphaAdapters: AlphaAdapters? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_grid)
+        setContentView(R.layout.activity_reci)
 
-        var numberOfColumns = 2
-        if (this.resources.configuration.orientation ===
-            Configuration.ORIENTATION_LANDSCAPE) numberOfColumns = 3
-
-        recyclerView = findViewById(R.id.my_recycler_view)
-        gridLayoutManager = GridLayoutManager(applicationContext,numberOfColumns,GridLayoutManager.VERTICAL,false)
+        recyclerView = findViewById(R.id.recycler_view_item)
+        gridLayoutManager =
+                GridLayoutManager(applicationContext, 3, LinearLayoutManager.VERTICAL, false)
         recyclerView?.layoutManager = gridLayoutManager
         recyclerView?.setHasFixedSize(true)
-        arrayList = ArrayList()
-        arrayList = setDataInList()
-        alphaAdapters = AlphaAdapters(applicationContext,arrayList!!)
+
+        charItem = ArrayList()
+        charItem = setAlphas()
+        alphaAdapters = AlphaAdapters(applicationContext, charItem!!)
         recyclerView?.adapter = alphaAdapters
 
     }
-    private fun setDataInList():ArrayList<AlphaChar>{
-        var items:ArrayList<AlphaChar> = ArrayList()
 
-        items.add(AlphaChar(R.drawable.violin,"Char Violin"))
-        items.add(AlphaChar(R.drawable.violin,"Char Violin"))
-        items.add(AlphaChar(R.drawable.violin,"Char Violin"))
-        items.add(AlphaChar(R.drawable.violin,"Char Violin"))
-        items.add(AlphaChar(R.drawable.violin,"Char Violin"))
-        items.add(AlphaChar(R.drawable.violin,"Char Violin"))
+    private fun setAlphas(): ArrayList<CharItem> {
 
+        var arrayList: ArrayList<CharItem> = ArrayList()
 
-        return items
+        arrayList.add(CharItem(R.drawable.letter_a, "A Latter"))
+        arrayList.add(CharItem(R.drawable.letter_b, "B Latter"))
+        arrayList.add(CharItem(R.drawable.letter_c, "C Latter"))
+        arrayList.add(CharItem(R.drawable.letter_d, "D Latter"))
+        arrayList.add(CharItem(R.drawable.letter_e, "E Latter"))
+        arrayList.add(CharItem(R.drawable.letter_f, "F Latter"))
+        arrayList.add(CharItem(R.drawable.letter_g, "G Latter"))
+        arrayList.add(CharItem(R.drawable.letter_h, "H Latter"))
+        arrayList.add(CharItem(R.drawable.letter_i, "I Latter"))
+        arrayList.add(CharItem(R.drawable.letter_j, "J Latter"))
+        arrayList.add(CharItem(R.drawable.letter_k, "K Latter"))
+        arrayList.add(CharItem(R.drawable.letter_l, "L Latter"))
+        arrayList.add(CharItem(R.drawable.letter_m, "M Latter"))
+        arrayList.add(CharItem(R.drawable.letter_n, "N Latter"))
+        arrayList.add(CharItem(R.drawable.letter_o, "o Latter"))
+        arrayList.add(CharItem(R.drawable.letter_p, "P Latter"))
+        arrayList.add(CharItem(R.drawable.letter_q, "Q Latter"))
+        arrayList.add(CharItem(R.drawable.letter_r, "R Latter"))
+        arrayList.add(CharItem(R.drawable.letter_s, "S Latter"))
+        arrayList.add(CharItem(R.drawable.letter_t, "T Latter"))
+        arrayList.add(CharItem(R.drawable.letter_u, "U Latter"))
+        arrayList.add(CharItem(R.drawable.letter_v, "V Latter"))
+        arrayList.add(CharItem(R.drawable.letter_w, "W Latter"))
+        arrayList.add(CharItem(R.drawable.letter_x, "X Latter"))
+        arrayList.add(CharItem(R.drawable.letter_y, "Y Latter"))
+        arrayList.add(CharItem(R.drawable.letter_z, "Z Latter"))
+
+        return arrayList
     }
 }
